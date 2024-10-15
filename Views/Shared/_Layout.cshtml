@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ZML Toyota</title>
+    <title>@ViewData["Title"]</title>
     <link rel="icon" type="image/x-icon" href="~/assets/toyota-logo.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -15,8 +15,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <img src="https://freepngimg.com/thumb/toyota_logo/5-2-toyota-logo-png-thumb.png" width="30" height="30" style="margin-right: 10px" />
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>ZML Toyota</b></a>
+                @* <img src="https://freepngimg.com/thumb/toyota_logo/5-2-toyota-logo-png-thumb.png" width="30" height="30" style="margin-right: 10px" /> *@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>CyberAwareness.org</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,20 +28,15 @@
                             <i class="fas fa-home"></i>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <!-- Vehicles nav item -->
+                        <!-- News nav item -->
                         <li class="nav-item">
-                            <i class="fas fa-car"></i>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Vehicles" asp-action="Index">Vehicles</a>
+                            <i class="fas fa-newspaper"></i>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Vehicles" asp-action="Index">News</a>
                         </li>
-                        <!-- Match nav item -->
+                        <!-- Password Check nav item -->
                         <li class="nav-item">
-                            <i class="fas fa-magic"></i>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Match" asp-action="FindYourMatch">Find Your Match</a>
-                        </li>
-                        <!-- Manage nav item -->
-                        <li class="nav-item">
-                            <i class="fas fa-edit"></i>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Manage" asp-action="Index">Manage</a>
+                            <i class="fas fa-key"></i>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Match" asp-action="FindYourMatch">Check Password Strength</a>
                         </li>
                     </ul>
                 </div>
@@ -74,14 +69,14 @@
         position: relative;
         text-align: center;
         color: #333;
-    }
 
-        footer a {
+        a {
             color: #007bff;
             text-decoration: none;
         }
 
-            footer a:hover {
-                text-decoration: underline;
-            }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
 </style>

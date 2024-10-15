@@ -1,0 +1,397 @@
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1; /* Ensures the container takes available space */
+}
+
+.poster {
+    max-width: 800px;
+    max-height: 400px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+}
+
+.btn-blue {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    background: #005aff;
+    color: white;
+    max-width: fit-content;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    margin: 1rem 0;
+    transition: background .1s ease-in-out;
+}
+.btn-blue:hover {
+    background: #024bd1;
+    color: white;
+    transition: background .1s ease-in-out;
+}
+
+.btn-row {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.btn-row-spaced {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+}
+
+/* NAV */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-brand {
+    margin-right: 4rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+
+/* HOME PAGE */
+
+
+.homepage-container {
+    background-image: url('https://th.bing.com/th/id/OIP.-xX3cXM-WS_h3APgh8Q96AHaEo?rs=1&pid=ImgDetMain');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.homepage-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.homepage-header p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.btn-red {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+    .btn-red:hover {
+        background-color: #cc0000;
+    }
+
+.box {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.box h4 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+
+/* MANAGE TABLE */
+.table-ctnr {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, .25) !important;
+    margin-bottom: 1rem;
+}
+
+.table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid lightgrey;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .row-btns {
+        margin-right: 1rem;
+
+        button, a {
+            border: none;
+            background: none;
+            padding: 0;
+            color: #555;
+            transition: scale .1s ease-in-out;
+            cursor: pointer;
+        }
+        button:hover {
+            color: #333;
+            scale: 115%;
+            transition: scale, color .1s ease-in-out;
+        }
+        a:hover {
+            color: #333;
+            scale: 115%;
+            transition: scale, color .1s ease-in-out;
+        }
+    }
+
+    img {
+        max-width: 100px;
+        margin-right: 0 !important;
+    }
+
+    p {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+}
+.table-row:last-child {
+    border: none;
+}
+
+
+/* ALL VEHICLES */
+.filter-container {
+    max-width: 100%;
+    padding: 0px;
+    flex: 1;
+}
+
+
+
+/* MANAGE TABLE */
+.table-ctnr {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, .25) !important;
+    margin-bottom: 1rem;
+}
+
+.table-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+
+    border-bottom: 1px solid lightgrey;
+
+    img {
+        max-width: 100px;
+        margin-right: 1rem;
+    }
+
+    p { margin: 0; }
+
+    .table-row:last-child {
+        border: none;
+    }
+
+/* Position the back arrow below the navbar */
+.back-arrow {
+    position: relative;
+    top: 20px; /* Move the arrow below the navbar */
+    left: 20px;
+    text-decoration: none;
+}
+
+    /* Lighten the arrow color */
+    .back-arrow i {
+        color: #666; /* Lighter gray color for the arrow */
+        transition: color 0.3s ease;
+    }
+
+    /* Hover effect: slightly darken the arrow on hover */
+    .back-arrow:hover i {
+        color: #333; /* Darken slightly on hover */
+    }
+
+
+
+
+/* VEHICLE CARDS CSS*/
+
+/* Hover effect for vehicle cards */
+.vehicle-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
+}
+
+    /* Apply hover effect to the card itself */
+    .vehicle-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+
+/*VEHICLE DETAILS CSS*/
+.back-arrow {
+    position: relative;
+    top: 20px; /* Move the arrow below the navbar */
+    left: 20px;
+    text-decoration: none;
+}
+
+    .back-arrow i {
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    .back-arrow:hover i {
+        color: #333;
+    }
+
+
+/* Footer styling */
+footer {
+    background-color: #fff; /* Make the footer white */
+    padding: 10px 20px;
+    position: relative;
+    text-align: center;
+    color: #333;
+}
+
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+/* ADD/EDIT FORM */
+/*.edit-form {
+    display: flex;
+    flex-direction: column;
+    background: red;
+}
+
+.form-row {*/
+/*    width: 100%;*/
+    /*display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    background: red;
+}
+
+.input-w-label {
+    display: flex;
+    flex-direction: column !important;
+    max-width: 10px;
+    background: blue;
+}*/
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+/* Dark mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+.navbar.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+    .navbar.dark-mode .nav-link {
+        color: #fff;
+    }
+
+.footer.dark-mode {
+    background-color: #333;
+}
