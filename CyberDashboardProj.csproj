@@ -7,8 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\NewsController.cs" />
+    <Compile Remove="Controllers\PasswordController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\CheckPassword\CheckPassword.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Controllers\.txt" />
     <None Remove="Controllers\NewFile.txt" />
+    <None Remove="Services\NewFile.txt" />
+    <None Remove="Views\CheckPassword\NewFile.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,10 +28,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\NewsFeed\" />
+    <PackageReference Include="NewsAPI" Version="0.7.0" />
   </ItemGroup>
 
 </Project>

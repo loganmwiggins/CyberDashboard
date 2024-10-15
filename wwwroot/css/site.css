@@ -1,3 +1,23 @@
+
+:root {
+    --background-color: #f4f4f4;
+    --text-primary: #333;
+    --navbar-background: #fff;
+    --navbar-text: #000;
+    --footer-background: #fff;
+    --footer-text: #333;
+}
+
+    :root.dark-mode {
+        --background-color: #121212;
+        --text-primary: #fff;
+        --navbar-background: #333;
+        --navbar-text: #fff;
+        --footer-background: #333;
+        --footer-text: #fff;
+    }
+
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -12,7 +32,7 @@ html {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    color: #333;
+    color: var(--text-primary);
     display: flex;
     flex-direction: column;
 }
@@ -24,7 +44,8 @@ body {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-primary);
     display: flex;
     flex-direction: column;
     margin-bottom: 60px;
@@ -177,159 +198,6 @@ ul {
 }
 
 
-/* MANAGE TABLE */
-.table-ctnr {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1rem;
-    box-shadow: 0 0 .25rem rgba(0, 0, 0, .25) !important;
-    margin-bottom: 1rem;
-}
-
-.table-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1rem;
-    border-bottom: 1px solid lightgrey;
-
-    div {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .row-btns {
-        margin-right: 1rem;
-
-        button, a {
-            border: none;
-            background: none;
-            padding: 0;
-            color: #555;
-            transition: scale .1s ease-in-out;
-            cursor: pointer;
-        }
-        button:hover {
-            color: #333;
-            scale: 115%;
-            transition: scale, color .1s ease-in-out;
-        }
-        a:hover {
-            color: #333;
-            scale: 115%;
-            transition: scale, color .1s ease-in-out;
-        }
-    }
-
-    img {
-        max-width: 100px;
-        margin-right: 0 !important;
-    }
-
-    p {
-        margin: 0;
-        font-weight: 600;
-        font-size: 1.2rem;
-    }
-}
-.table-row:last-child {
-    border: none;
-}
-
-
-/* ALL VEHICLES */
-.filter-container {
-    max-width: 100%;
-    padding: 0px;
-    flex: 1;
-}
-
-
-
-/* MANAGE TABLE */
-.table-ctnr {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1rem;
-    box-shadow: 0 0 .25rem rgba(0, 0, 0, .25) !important;
-    margin-bottom: 1rem;
-}
-
-.table-row {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 1rem;
-
-    border-bottom: 1px solid lightgrey;
-
-    img {
-        max-width: 100px;
-        margin-right: 1rem;
-    }
-
-    p { margin: 0; }
-
-    .table-row:last-child {
-        border: none;
-    }
-
-/* Position the back arrow below the navbar */
-.back-arrow {
-    position: relative;
-    top: 20px; /* Move the arrow below the navbar */
-    left: 20px;
-    text-decoration: none;
-}
-
-    /* Lighten the arrow color */
-    .back-arrow i {
-        color: #666; /* Lighter gray color for the arrow */
-        transition: color 0.3s ease;
-    }
-
-    /* Hover effect: slightly darken the arrow on hover */
-    .back-arrow:hover i {
-        color: #333; /* Darken slightly on hover */
-    }
-
-
-
-
-/* VEHICLE CARDS CSS*/
-
-/* Hover effect for vehicle cards */
-.vehicle-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
-}
-
-    /* Apply hover effect to the card itself */
-    .vehicle-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-
-/*VEHICLE DETAILS CSS*/
-.back-arrow {
-    position: relative;
-    top: 20px; /* Move the arrow below the navbar */
-    left: 20px;
-    text-decoration: none;
-}
-
-    .back-arrow i {
-        color: #666;
-        transition: color 0.3s ease;
-    }
-
-    .back-arrow:hover i {
-        color: #333;
-    }
-
-
 /* Footer styling */
 footer {
     background-color: #fff; /* Make the footer white */
@@ -340,7 +208,7 @@ footer {
 }
 
     footer a {
-        color: #007bff;
+        color: #fff;
         text-decoration: none;
     }
 
@@ -348,50 +216,34 @@ footer {
             text-decoration: underline;
         }
 
-/* ADD/EDIT FORM */
-/*.edit-form {
-    display: flex;
-    flex-direction: column;
-    background: red;
-}
-
-.form-row {*/
-/*    width: 100%;*/
-    /*display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    background: red;
-}
-
-.input-w-label {
-    display: flex;
-    flex-direction: column !important;
-    max-width: 10px;
-    background: blue;
-}*/
-
 
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
 }
-/* Dark mode */
-body.dark-mode {
-    background-color: #121212;
-    color: #fff;
+.navbar {
+    background-color: var(--navbar-background);
+    color: var(--navbar-text);
 }
 
-.navbar.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-    .navbar.dark-mode .nav-link {
-        color: #fff;
+    .navbar .nav-link {
+        color: var(--navbar-text) !important;
+        text-decoration: none;
     }
+        .navbar .nav-link:hover {
+            color: var(--navbar-text) !important;
+        }
 
-.footer.dark-mode {
-    background-color: #333;
+.footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text);
 }
+.navbar .navbar-brand {
+    color: var(--navbar-text) !important; 
+    text-decoration: none; 
+}
+
+    .navbar .navbar-brand:hover {
+        color: var(--navbar-text); 
+    }

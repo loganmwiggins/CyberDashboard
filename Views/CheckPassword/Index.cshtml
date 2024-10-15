@@ -1,0 +1,31 @@
+﻿@model dynamic  
+
+@{
+    ViewData["Title"] = "Check Password";
+}
+
+<h2>Check If Your Password Has Been Compromised</h2>
+
+<form asp-action="CheckPassword" method="post">
+    <div class="form-group">
+        <label for="password">Enter your password:</label>
+        <input type="password" class="form-control" id="password" name="password" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Check Password</button>
+</form>
+
+@if (Model != null)
+{
+    if (Model.IsCompromised)
+    {
+        <div class="alert alert-danger mt-3">
+            Your password has been compromised! Please change it immediately.
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success mt-3">
+            Your password is safe!
+        </div>
+    }
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Title"] - InfoGuard</title>
     <link rel="icon" type="image/x-icon" href="~/assets/toyota-logo.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -13,10 +13,9 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                @* <img src="https://freepngimg.com/thumb/toyota_logo/5-2-toyota-logo-png-thumb.png" width="30" height="30" style="margin-right: 10px" /> *@
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>CyberAwareness.org</b></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>InfoGuard</b></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,19 +25,22 @@
                         <!-- Home nav item -->
                         <li class="nav-item">
                             <i class="fas fa-home"></i>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <!-- News nav item -->
                         <li class="nav-item">
                             <i class="fas fa-newspaper"></i>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Vehicles" asp-action="Index">News</a>
+                            <a class="nav-link" asp-area="" asp-controller="NewsFeed" asp-action="Index">News</a>
                         </li>
                         <!-- Password Check nav item -->
                         <li class="nav-item">
                             <i class="fas fa-key"></i>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Match" asp-action="FindYourMatch">Check Password Strength</a>
+                            <a class="nav-link" asp-area="" asp-controller="Password" asp-action="FindYourMatch">Password Strength</a>
                         </li>
                     </ul>
+                    <button id="theme-toggle" class="btn btn-secondary">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -51,32 +53,34 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 ZML Toyota - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+            2024 &copy; InfoGuard, Inc.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
-
-<style>
-    /* Footer styling */
-    footer {
-        background-color: #fff; /* Make the footer white */
-        padding: 10px 20px;
-        position: relative;
-        text-align: center;
-        color: #333;
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+    <script>
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark-mode');
+        // Save the user's preference in local storage
+        if (document.documentElement.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
         }
     }
-</style>
+
+    // Event listener for the toggle button
+    document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
+
+    // Apply the saved theme on page load
+    window.onload = function() {
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    }
+</script>
+</body>
+</html>

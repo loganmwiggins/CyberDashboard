@@ -1,5 +1,139 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿﻿@{
+    ViewData["Title"] = "Home";
 }
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="sidebyside">
+    <div class="company-info">
+        <h3>INFOGUARD.ORG</h3>
+        <h1>Take Matters Into<br />Your Own Hands</h1>
+        <p>
+            At InfoGuard.org, we believe that staying informed and proactive is the best way to safeguard your personal and professional data. 
+            <br /><br />
+            Our mission is to empower individuals and organizations with the knowledge and tools necessary to navigate today's digital world securely. With cyber threats evolving daily, it’s essential to be prepared and aware. 
+            <br /><br />
+            Our platform offers a comprehensive suite of resources, including real-time cybersecurity news and practical tools like a password strength checker, so you can assess and improve your digital safety practices. Stay one step ahead and protect what matters most with InfoGuard.org.</p>
+    </div>
+
+    <div class="company-tools">
+        <h3>TRY OUR TOOLS</h3>
+        <div class="tools-ctnr">
+            <!-- News Feed button -->
+            <a class="tool-btn">
+                <div class="logo-desc">
+                    <i class="fas fa-newspaper fa-lg"></i>
+                    <div>
+                        <p>News Articles</p>
+                        <p>Check out a personalized news feed.</p>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-circle-right fa-lg"></i>
+            </a>
+
+            <!-- Password button -->
+            <a class="tool-btn">
+                <div class="logo-desc">
+                    <i class="fas fa-key fa-lg"></i>
+                    <div>
+                        <p>Password Strength</p>
+                        <p>Test the strength of your passwords.</p>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-circle-right fa-lg"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+@* STYLES *@
+<style>
+    .sidebyside {
+        display: flex;
+        gap: 8rem;
+    }
+
+    .company-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        h1 {
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: red;
+            margin: 0;
+        }
+    }
+
+    .company-tools {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        h3 {
+            font-size: 1.25rem;
+            color: red;
+            margin: 0;
+        }
+    }
+
+    .tools-ctnr {
+        display: flex;
+        flex-direction: column;
+        background: var(--navbar-background);
+        border-radius: 1rem;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .tool-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+        background: var(--background-color);
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        cursor: pointer;
+
+        .logo-desc {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                p { margin: 0; }
+                p:first-child {
+                    font-weight: 400;
+                }
+                p:nth-child(2) {
+                    opacity: .75;
+                }
+            }
+            i {
+                color: red;
+            }
+        }
+    }
+
+    .tool-btn:hover {
+        color: var(--text-primary);
+    }
+
+    
+</style>
