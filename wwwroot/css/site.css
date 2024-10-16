@@ -9,6 +9,7 @@
     --navbar-text: #000;
     --footer-background: #fff;
     --footer-text: #333;
+    --accent-red: #e02b29;
 }
 
 :root.dark-mode {

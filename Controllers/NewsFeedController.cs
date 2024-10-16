@@ -12,13 +12,22 @@ namespace CyberDashboardProj.Controllers
 {
     public class NewsFeedController : Controller
     {
-        public IActionResult Index()
+       public IActionResult Index(string filter = "Cybersecurity")
         {
-            var articles = APIitems.GetArticles("cyber security");
+            var articles = APIitems.GetArticles(filter);
 
-            return View(articles);
+            return View(articles); // Pass the articles to the Index view
         }
+
+        [HttpPost]
+        public IActionResult FilterResults(string filter)
+        {
+        // Redirect to Index action, passing the filter as a query parameter
+            return RedirectToAction("Index", new { filter = filter });
+        }
+
     }
+    
 
     public class APIitems
     {
