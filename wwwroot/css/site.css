@@ -2,6 +2,9 @@
 :root {
     --background-color: #f4f4f4;
     --text-primary: #333;
+    --text-secondary: #444;
+    --text-third: #555;
+    --text-fourth: #777;
     --navbar-background: #fff;
     --navbar-text: #000;
     --footer-background: #fff;
@@ -11,6 +14,9 @@
 :root.dark-mode {
     --background-color: #121212;
     --text-primary: #fff;
+    --text-secondary: #eee;
+    --text-third: #ddd;
+    --text-fourth: #bbb;
     --navbar-background: #333;
     --navbar-text: #fff;
     --footer-background: #333;

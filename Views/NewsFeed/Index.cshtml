@@ -5,6 +5,14 @@
 }
 @model List<Article>
 
+<div class="filter-row">
+    <div class="filter-btn">All</div>
+    <div class="filter-btn">Hack</div>
+    <div class="filter-btn">Encryption</div>
+    <div class="filter-btn">Ransomware</div>
+    <div class="filter-btn">Data Breach</div>
+    <div class="filter-btn">Advanced Persistent Threat</div>
+</div>
 
 <div class="news-container">
     @foreach (var article in Model)
@@ -39,7 +47,6 @@
 
     .news-item {
         background: var(--navbar-background);
-        color: var(--text-primary);
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 15px 20px;
@@ -52,25 +59,27 @@
     }
 
     .news-title {
-        font-size: 1.5em;
+        font-size: 1.25em;
         margin-bottom: 10px;
-        color: #333;
+        color: var(--text-primary);
         font-weight: bold;
     }
 
     .news-meta {
         font-size: 0.9em;
-        color: #555;
+        color: var(--text-third);
         margin-bottom: 15px;
     }
 
     .news-author { font-weight: bold; }
 
-    .news-date { color: #777; }
+    .news-date {
+        color: var(--text-fourth);
+    }
 
     .news-description {
         font-size: 1em;
         line-height: 1.6;
-        color: #444;
+        color: var(--text-secondary);
     }
 </style>

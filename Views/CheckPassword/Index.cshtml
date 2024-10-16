@@ -3,26 +3,52 @@
 }
 @model string
 
-<h1>Check if Your Password is Compromised</h1>
+<h1>Is Your Password Compromised?</h1>
+
+<p>InfoGuard’s Password Checker uses hundreds of millions of real-world passwords previously exposed in data                  breaches. This exposure makes them unsuitable for ongoing use as they're at much greater risk of being used to                 take over other accounts. They're searchable online below as well as being downloadable for use in other online                systems. </p>
 
 <form asp-action="CheckPassword" method="post">
     <div class="form-group">
         <label for="password">Enter Password:</label>
         <input type="password" id="password" name="password" class="form-control" required />
     </div>
+    <br />
     <button type="submit" class="btn btn-primary">Check Password</button>
 </form>
 
+<br />
 @if (ViewBag.IsCompromised != null)
 {
     <div class="alert @(ViewBag.IsCompromised ? "alert-danger" : "alert-success")" role="alert">
         @if (ViewBag.IsCompromised)
         {
             <strong>Your password has been compromised!</strong>
+
+            <p class="m0">
+                <a href="https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2#cloudflareprivacyandkanonymity" target="_blank">Visit this link</a>
+                to understand how InfoGuard determines if your password has been hacked.
+            </p>
         }
         else
         {
             <strong>Your password is safe!</strong>
+      
+
+            <p class="m0">
+                <a href="https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2#cloudflareprivacyandkanonymity">Visit this link</a>
+                to understand how InfoGuard determines if your password has been hacked.
+            </p>
         }
     </div>
 }
+
+
+<style>
+    .m0 {
+        margin: 0;
+    }
+
+    h1 {
+        font-weight: 600;
+    }
+</style>

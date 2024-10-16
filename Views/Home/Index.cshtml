@@ -20,7 +20,7 @@
         <h3>TRY OUR TOOLS</h3>
         <div class="tools-ctnr">
             <!-- News Feed button -->
-            <a class="tool-btn">
+            <a class="tool-btn" asp-controller="NewsFeed" asp-action="Index">
                 <div class="logo-desc">
                     <i class="fas fa-newspaper fa-lg"></i>
                     <div>
@@ -32,12 +32,12 @@
             </a>
 
             <!-- Password button -->
-            <a class="tool-btn">
+            <a class="tool-btn" asp-controller="CheckPassword" asp-action="Index">
                 <div class="logo-desc">
                     <i class="fas fa-key fa-lg"></i>
                     <div>
-                        <p>Password Strength</p>
-                        <p>Test the strength of your passwords.</p>
+                        <p>Password Checker</p>
+                        <p>Check if your password has been compromised.</p>
                     </div>
                 </div>
                 <i class="fas fa-arrow-circle-right fa-lg"></i>
@@ -119,7 +119,7 @@
 
                 p { margin: 0; }
                 p:first-child {
-                    font-weight: 400;
+                    font-weight: 600;
                 }
                 p:nth-child(2) {
                     opacity: .75;

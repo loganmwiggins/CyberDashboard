@@ -39,7 +39,7 @@ namespace CyberDashboardProj.Controllers
                 {
                     if (article.Title != "[Removed]")
                     {
-                        ArtList.Add(new Article(article.Title, article.Author, article.Description, article.PublishedAt.ToString(), article.Url));
+                        ArtList.Add(new Article(article.Title, article.Author, article.Description, article.PublishedAt.ToString(), article.Url,article.UrlToImage));
                     }
 
                 }
@@ -60,21 +60,21 @@ namespace CyberDashboardProj.Controllers
         public string Description { get; set; }
         public string DateTime { get; set; }
         public string Url { get; set; }
-        //public string ImagePath { get; set; }
+       public string ImagePath { get; set; }
 
-        public Article(string title, string author, string description, string dateTime, string url)
+        public Article(string title, string author, string description, string dateTime, string url, string imagepath)
         {
             Title = title;
             Author = author;
             Description = description;
             DateTime = dateTime;
             Url = url;
-            //ImagePath = imgPath;
+            ImagePath = imagepath;
         }
 
         public override string ToString()
         {
-            return $"Title: {Title}\nAuthor: {Author}\nDescription: {Description}\nDate: {DateTime}\nURL: {Url}";
+            return $"Title: {Title}\nAuthor: {Author}\nDescription: {Description}\nDate: {DateTime}\nURL: {Url}\nImage: {ImagePath}";
         }
     }
 }

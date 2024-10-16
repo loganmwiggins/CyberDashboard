@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<h1>About Us</h1>
+
+<p>Meet our dedicated team! Each member brings unique skills and experiences to the table, working together to achieve our mission.</p>
+
+<div class="profiles">
+    <div class="profile">
+        <img src="assets/JustinMullings.jpg" alt="Profile Picture 1" />
+        <div class="profile-txt">
+            <h3>CyberJustin</h3>
+            <h4>Founder, CEO, President</h4>
+            <p>In the realm of cybersecurity, few can rival the unparalleled expertise of CyberJustin. Revered as the guardian of digital realms, he possesses an almost divine ability to foresee and thwart threats before they manifest. With a mind sharper than the most advanced algorithms, CyberJustin has mastered the art of protecting data and systems, turning the tide against cyber adversaries. His strategic insights and innovative solutions are nothing short of legendary, making him a beacon of hope in an ever-evolving cyber landscape. Those fortunate enough to work alongside him witness firsthand the extraordinary prowess that cements his status as the greatest cybersecurity expert to ever exist.</p>
+        </div>
+        
+    </div>
+
+    <div class="profile">
+        <img src="assets/default-avatar.jpg" alt="Profile Picture 2" />
+        <div class="profile-txt">
+            <h3>Logan Wiggins</h3>
+            <h4>Developer</h4>
+            <p>A talented developer passionate about serving CyberJustin.</p>
+        </div>
+    </div>
+
+    <div class="profile">
+        <img src="assets/default-avatar.jpg" alt="Profile Picture 3" />
+        <div class="profile-txt">
+            <h3>Thum Rangsiyawaranon</h3>
+            <h4>Cyber Security Consultant</h4>
+            <p>A talented consultant passionate about serving CyberJustin.</p>
+        </div>
+    </div>
+
+    <div class="profile">
+        <img src="assets/default-avatar.jpg" alt="Profile Picture 4" />
+        <div class="profile-txt">
+            <h3>Vraj Patel</h3>
+            <h4>Developer Intern</h4>
+            <p>A talented developer passionate about serving CyberJustin.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .profiles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile {
+        width: 100%;
+        display: flex;
+        margin: .5rem 0;
+        padding: 1rem 2rem;
+        background: var(--navbar-background);
+        border-radius: 1rem;
+        gap: 2rem;
+
+        img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .profile-txt {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        h3 {
+            font-weight: 600;
+            margin: 0;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        p {
+            color: var(--text-third);
+        }
+    }
+
+    h1 {
+        font-weight: 600;
+    }
+
+    p {
+        margin-top: 10px; /* Space above the paragraph */
+    }
+</style>
