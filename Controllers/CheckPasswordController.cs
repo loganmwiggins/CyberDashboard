@@ -1,18 +1,37 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-public class CheckPasswordController : Controller
+namespace CyberDashboardProj.Controllers
 {
-    private readonly PasswordService _passwordService;
-
-    //public void PasswordController(PasswordService passwordService)
-    //{
-    //    _passwordService = passwordService;
-    //}
-
-    [HttpPost]
-    public async Task<IActionResult> Index(string password)
+    public class CheckPasswordController : Controller
     {
-        bool isCompromised = await _passwordService.CheckIfPasswordCompromised(password);
-        return View(new { IsCompromised = isCompromised });
+        private readonly IPasswordCheckerService _passwordCheckerService;
+
+        public CheckPasswordController(IPasswordCheckerService passwordCheckerService)
+        {
+            _passwordCheckerService = passwordCheckerService;
+        }
+
+        // GET: PasswordChecker
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        // POST: PasswordChecker/CheckPassword
+        [HttpPost]
+        public async Task<IActionResult> CheckPassword(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                ViewBag.IsCompromised = null;
+                return View("Index");
+            }
+
+            var isCompromised = await _passwordCheckerService.CheckPasswordAsync(password);
+            ViewBag.IsCompromised = isCompromised;
+
+            return View("Index");
+        }
     }
 }

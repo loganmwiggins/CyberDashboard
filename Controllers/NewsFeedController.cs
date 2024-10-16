@@ -60,6 +60,7 @@ namespace CyberDashboardProj.Controllers
         public string Description { get; set; }
         public string DateTime { get; set; }
         public string Url { get; set; }
+        //public string ImagePath { get; set; }
 
         public Article(string title, string author, string description, string dateTime, string url)
         {
@@ -68,6 +69,7 @@ namespace CyberDashboardProj.Controllers
             Description = description;
             DateTime = dateTime;
             Url = url;
+            //ImagePath = imgPath;
         }
 
         public override string ToString()

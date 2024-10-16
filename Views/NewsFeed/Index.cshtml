@@ -9,7 +9,7 @@
 <div class="news-container">
     @foreach (var article in Model)
     {
-        <div class="news-item" onclick="openArticle(@article.Url)">
+        <div class="news-item" onclick="openArticle('@article.Url')">
             <div class="news-title">@article.Title</div>
             <div class="news-meta">
                 <span class="news-author">@article.Author</span> &bull;
@@ -21,7 +21,7 @@
 </div>
 
 
-
+@* JAVASCRIPT *@
 <script>
     function openArticle(url) {
         window.open(url, '_blank');
@@ -29,7 +29,7 @@
 </script>
 
 
-
+@* STYLES *@
 <style>
     .news-container {
         max-width: 800px;
@@ -38,16 +38,17 @@
     }
 
     .news-item {
-        background-color: #fff;
+        background: var(--navbar-background);
+        color: var(--text-primary);
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 15px 20px;
         margin-bottom: 20px;
+        cursor: pointer;
         transition: transform 0.3s ease;
     }
-
     .news-item:hover {
-        transform: translateY(-2px);
+        transform: translateY(-4px);
     }
 
     .news-title {
@@ -63,13 +64,9 @@
         margin-bottom: 15px;
     }
 
-    .news-author {
-        font-weight: bold;
-    }
+    .news-author { font-weight: bold; }
 
-    .news-date {
-        color: #777;
-    }
+    .news-date { color: #777; }
 
     .news-description {
         font-size: 1em;

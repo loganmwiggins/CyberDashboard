@@ -11,7 +11,7 @@ namespace CyberDashboardProj
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddHttpClient<PasswordService>();
+            builder.Services.AddHttpClient<IPasswordCheckerService, PasswordCheckerService>();
 
             // Register our DbContext for dependency injection
             //builder.Services.AddDbContext<AppDbContext>(options =>

@@ -8,14 +8,14 @@
     --footer-text: #333;
 }
 
-    :root.dark-mode {
-        --background-color: #121212;
-        --text-primary: #fff;
-        --navbar-background: #333;
-        --navbar-text: #fff;
-        --footer-background: #333;
-        --footer-text: #fff;
-    }
+:root.dark-mode {
+    --background-color: #121212;
+    --text-primary: #fff;
+    --navbar-background: #333;
+    --navbar-text: #fff;
+    --footer-background: #333;
+    --footer-text: #fff;
+}
 
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {

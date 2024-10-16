@@ -3,62 +3,50 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-public class PasswordService
+namespace CyberDashboardProj
 {
-    private readonly HttpClient _httpClient;
-
-    public PasswordService(HttpClient httpClient)
+    public class PasswordCheckerService : IPasswordCheckerService
     {
-        _httpClient = httpClient;
-    }
+        private readonly HttpClient _httpClient;
 
-    public async Task<bool> CheckIfPasswordCompromised(string password)
-    {
-        // Hash the password using SHA-1
-        var hashedPassword = HashPassword(password);
-        //variable stores the first 5 values of the hash (this is what is contacted and posted to API)
-        var prefix = hashedPassword.Substring(0, 5);
-        //the last bit after the prefix
-        var suffix = hashedPassword.Substring(5);
-
-        // Construct the API URL
-        string url = $"https://api.pwnedpasswords.com/range/{prefix}";
-        //notice how prefix is sent to the api
-
-        try
+        public PasswordCheckerService(HttpClient httpClient)
         {
-            var response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
+            _httpClient = httpClient;
+        }
 
-            // Read the response content
-            var content = await response.Content.ReadAsStringAsync();
-            var lines = content.Split('\n');
+        public async Task<bool> CheckPasswordAsync(string password)
+        {
+            var hash = HashPassword(password);
+            var prefix = hash.Substring(0, 5);
+            var suffix = hash.Substring(5).ToUpper();
 
-            // Check if the hashed password's suffix exists in the response
-            foreach (var line in lines)
+            var response = await _httpClient.GetAsync($"https://api.pwnedpasswords.com/range/{prefix}");
+
+            if (response.IsSuccessStatusCode)
             {
-                var parts = line.Split(':');
-                if (parts[0].Equals(suffix, StringComparison.OrdinalIgnoreCase))
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var lines = responseBody.Split('\n');
+
+                foreach (var line in lines)
                 {
-                    return true; // Password is compromised
+                    var parts = line.Split(':');
+                    if (parts[0].Equals(suffix, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return true; // Password has been compromised
+                    }
                 }
             }
-            return false; // Password is not compromised
+            return false; // Password not found in compromised passwords
         }
-        catch (HttpRequestException)
-        {
-            // Handle exceptions (e.g., network issues)
-            return false;
-        }
-    }
 
-    private string HashPassword(string password)
-    {
-        using (var sha1 = SHA1.Create())
+        private string HashPassword(string password)
         {
-            var bytes = Encoding.UTF8.GetBytes(password);
-            var hash = sha1.ComputeHash(bytes);
-            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            using (var sha1 = SHA1.Create())
+            {
+                var bytes = Encoding.UTF8.GetBytes(password);
+                var hash = sha1.ComputeHash(bytes);
+                return BitConverter.ToString(hash).Replace("-", "").ToLower();
+            }
         }
     }
 }
