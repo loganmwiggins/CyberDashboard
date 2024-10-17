@@ -127,7 +127,10 @@ ul {
     align-items: center;
     background: none;
 }
-
+#theme-toggle {
+    background: none;
+    color: var(--text-primary);
+}
 
 /* HOME PAGE */
 .homepage-container {
