@@ -34,6 +34,8 @@ namespace CyberDashboardProj.Controllers
     {
         public static List<Article> GetArticles(string query) { 
             string API_KEY = "667cf68eaa6e48b0b06f3bf0a9590003";
+            // API key
+            //string API_KEY = "fbbc8a18e6934ad49468e2a21663801c";
             List<Article> ArtList = new List<Article>();
             var newsApiClient = new NewsApiClient(API_KEY);
             var articlesResponse = newsApiClient.GetEverything(new EverythingRequest
