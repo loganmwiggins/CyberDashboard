@@ -2,17 +2,19 @@
 
 ﻿@{
     ViewData["Title"] = "News Feed";
+    var selectedFilter = ViewData["Filter"] as string ?? "Cybersecurity";
 }
 @model List<Article>
 
+
 <form method="post" action="/NewsFeed/FilterResults">
     <div class="filter-row">
-        <button type="submit" name="filter" value="Cybersecurity" class="filter-btn selected">All</button>
-        <button type="submit" name="filter" value="Hack" class="filter-btn">Hack</button>
-        <button type="submit" name="filter" value="Encryption" class="filter-btn">Encryption</button>
-        <button type="submit" name="filter" value="Ransomware" class="filter-btn">Ransomware</button>
-        <button type="submit" name="filter" value="Data Breach" class="filter-btn">Data Breach</button>
-        <button type="submit" name="filter" value="Advanced Persistent Threat" class="filter-btn">Advanced Persistent Threat</button>
+        <button type="submit" name="filter" value="Cybersecurity" class="filter-btn @(selectedFilter == "Cybersecurity" ? "selected" : "")">All</button>
+        <button type="submit" name="filter" value="Hack" class="filter-btn @(selectedFilter == "Hack" ? "selected" : "")">Hack</button>
+        <button type="submit" name="filter" value="Encryption" class="filter-btn @(selectedFilter == "Encryption" ? "selected" : "")">Encryption</button>
+        <button type="submit" name="filter" value="Ransomware" class="filter-btn @(selectedFilter == "Ransomware" ? "selected" : "")">Ransomware</button>
+        <button type="submit" name="filter" value="Data Breach" class="filter-btn @(selectedFilter == "Data Breach" ? "selected" : "")">Data Breach</button>
+        <button type="submit" name="filter" value="Advanced Persistent Threat" class="filter-btn @(selectedFilter == "Advanced Persistent Threat" ? "selected" : "")">Advanced Persistent Threat</button>
     </div>
 </form>
 
@@ -20,10 +22,13 @@
     @foreach (var article in Model)
     {
         <div class="news-item" onclick="openArticle('@article.Url')">
+            <img class="news-image" src="@(!string.IsNullOrEmpty(article.ImagePath) ? article.ImagePath : "assets/default-image.jpg")" alt="Article image" draggable="false" />
             <div class="news-title">@article.Title</div>
+            
             <div class="news-meta">
                 <span class="news-author">@article.Author</span> &bull;
                 <span class="news-date">@article.DateTime.ToString()</span>
+                @* <span class="news-source">@article.Source</span> *@
             </div>
             <p class="news-description">@article.Description</p>
         </div>
@@ -72,7 +77,10 @@
 
     /* Articles list */
     .news-container {
-        max-width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
         margin: 0 auto;
         padding: 20px;
     }
@@ -81,37 +89,41 @@
         background: var(--navbar-background);
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 15px 20px;
-        margin-bottom: 20px;
+        padding: 15px 10px;
         cursor: pointer;
         transition: transform 0.3s ease;
+        flex: 1 1 calc(33.333% - 40px); /* Three items per row with 20px gap */
+        max-width: 300px;
+
+        img {
+            width: 100%;
+            max-height: 180px; /* Smaller image height */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
     }
     .news-item:hover {
-        transform: translateY(-4px);
+        transform: translateY(-6px);
+        box-shadow: 0 -.5rem 1rem #e02b29;
     }
 
     .news-title {
-        font-size: 1.25em;
-        margin-bottom: 10px;
+        font-size: 1em;
+        margin-bottom: 8px;
         color: var(--text-primary);
         font-weight: bold;
     }
 
     .news-meta {
-        font-size: 0.9em;
+        font-size: 0.8em;
         color: var(--text-third);
-        margin-bottom: 15px;
-    }
-
-    .news-author { font-weight: bold; }
-
-    .news-date {
-        color: var(--text-fourth);
+        margin-bottom: 8px;
     }
 
     .news-description {
-        font-size: 1em;
-        line-height: 1.6;
+        font-size: 0.9em;
+        line-height: 1.4;
         color: var(--text-secondary);
     }
 </style>

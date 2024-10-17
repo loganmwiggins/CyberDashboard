@@ -13,17 +13,18 @@ namespace CyberDashboardProj.Controllers
     public class NewsFeedController : Controller
     {
        public IActionResult Index(string filter = "Cybersecurity")
-        {
+       {
+            ViewData["Filter"] = filter;
             var articles = APIitems.GetArticles(filter);
 
             return View(articles); // Pass the articles to the Index view
-        }
+       }
+
 
         [HttpPost]
         public IActionResult FilterResults(string filter)
         {
-        // Redirect to Index action, passing the filter as a query parameter
-            return RedirectToAction("Index", new { filter = filter });
+            return RedirectToAction("Index", new { filter });
         }
 
     }
@@ -46,9 +47,9 @@ namespace CyberDashboardProj.Controllers
             {
                 foreach (var article in articlesResponse.Articles)
                 {
-                    if (article.Title != "[Removed]")
+                    if (article.Title != "[Removed]" && !string.IsNullOrEmpty(article.UrlToImage))
                     {
-                        ArtList.Add(new Article(article.Title, article.Author, article.Description, article.PublishedAt.ToString(), article.Url,article.UrlToImage));
+                        ArtList.Add(new Article(article.Title, article.Author, article.Description, article.PublishedAt.ToString(), article.Url,article.UrlToImage, article.Content));
                     }
 
                 }
@@ -70,8 +71,9 @@ namespace CyberDashboardProj.Controllers
         public string DateTime { get; set; }
         public string Url { get; set; }
        public string ImagePath { get; set; }
+       public string Source { get; set; }
 
-        public Article(string title, string author, string description, string dateTime, string url, string imagepath)
+        public Article(string title, string author, string description, string dateTime, string url, string imagepath,string source)
         {
             Title = title;
             Author = author;
@@ -79,6 +81,7 @@ namespace CyberDashboardProj.Controllers
             DateTime = dateTime;
             Url = url;
             ImagePath = imagepath;
+            Source = source;
         }
 
         public override string ToString()
