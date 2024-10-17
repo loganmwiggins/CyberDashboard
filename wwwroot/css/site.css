@@ -93,8 +93,8 @@ ul {
     gap: .5rem;
 
     img {
-        width: 2rem;
-        height: 2rem;
+        width: 2rem !important;
+        height: 2rem !important;
     }
 }
 
@@ -131,6 +131,7 @@ ul {
 .nav-item {
     display: flex;
     align-items: center;
+    background: none;
 }
 
 

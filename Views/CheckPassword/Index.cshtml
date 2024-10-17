@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Check Password";
+    ViewData["Title"] = "Password Checker";
 }
 @model string
 
@@ -11,7 +11,6 @@
     <div class="form-group">
         <label for="password">Enter Password:</label>
         <input type="password" id="password" name="password" class="form-control" required />
-   
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Check Password</button>
@@ -52,4 +51,10 @@
     h1 {
         font-weight: 600;
     }
+
+    .form-control, .form-control:active {
+        background: var(--navbar-background);
+        color: var(--text-primary);
+    }
+
 </style>
