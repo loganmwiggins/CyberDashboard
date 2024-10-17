@@ -15,7 +15,10 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>InfoGuard</b></a>
+                <div class="logo-name">
+                    <img src="~/assets/shield-lock-logo.png" />
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>InfoGuard</b></a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -66,26 +69,26 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
-    // Function to toggle dark mode
-    function toggleDarkMode() {
-        document.documentElement.classList.toggle('dark-mode');
-        // Save the user's preference in local storage
-        if (document.documentElement.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark-mode');
+            // Save the user's preference in local storage
+            if (document.documentElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         }
-    }
 
-    // Event listener for the toggle button
-    document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
+        // Event listener for the toggle button
+        document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
 
-    // Apply the saved theme on page load
-    window.onload = function() {
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
+        // Apply the saved theme on page load
+        window.onload = function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
