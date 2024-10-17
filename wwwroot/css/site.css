@@ -5,24 +5,26 @@
     --text-secondary: #444;
     --text-third: #555;
     --text-fourth: #777;
-    --navbar-background: #fff;
+    --navbar-background: rgba(255,255,255, .5);
     --navbar-text: #000;
     --footer-background: #fff;
     --footer-text: #333;
     --accent-red: #e02b29;
+    --navbar: #fff; 
 }
 
-:root.dark-mode {
-    --background-color: #121212;
-    --text-primary: #fff;
-    --text-secondary: #eee;
-    --text-third: #ddd;
-    --text-fourth: #bbb;
-    --navbar-background: #333;
-    --navbar-text: #fff;
-    --footer-background: #333;
-    --footer-text: #fff;
-}
+    :root.dark-mode {
+        --background-color: #121212;
+        --text-primary: #fff;
+        --text-secondary: #eee;
+        --text-third: #ddd;
+        --text-fourth: #bbb;
+        --navbar-background: rgba(51, 51, 51, .5);
+        --navbar-text: #fff;
+        --footer-background: #333;
+        --footer-text: #fff;
+        --navbar: #000;
+    }
 
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -98,23 +100,15 @@ ul {
     }
 }
 
-.btn-row {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-}
-
-.btn-row-spaced {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: .5rem;
-
-    div {
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-    }
+.body-gradient {
+    position: fixed;
+    width: 100vw;
+    height: 100svh;
+    z-index: -1;
+    background: radial-gradient(circle, #e02b29, var(--navbar-background));
+    top: 0;
+    right: 0;
+    opacity: .15;
 }
 
 /* NAV */
@@ -136,8 +130,6 @@ ul {
 
 
 /* HOME PAGE */
-
-
 .homepage-container {
     background-image: url('https://th.bing.com/th/id/OIP.-xX3cXM-WS_h3APgh8Q96AHaEo?rs=1&pid=ImgDetMain');
     background-size: cover;
@@ -202,11 +194,11 @@ footer {
     padding: 10px 20px;
     position: relative;
     text-align: center;
-    color: #333;
+    color: var(--navbar-text);
 }
 
     footer a {
-        color: #fff;
+        color: var(--navbar-text);
         text-decoration: none;
     }
 
@@ -221,7 +213,7 @@ footer {
     }
 }
 .navbar {
-    background-color: var(--navbar-background);
+    background-color: var(--navbar));
     color: var(--navbar-text);
 }
 

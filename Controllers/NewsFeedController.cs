@@ -47,8 +47,12 @@ namespace CyberDashboardProj.Controllers
             {
                 foreach (var article in articlesResponse.Articles)
                 {
+                    //string trimmed = "";
                     if (article.Title != "[Removed]" && !string.IsNullOrEmpty(article.UrlToImage))
                     {
+                        
+                        //if (article.Author.Contains(',')) { trimmed = article.Author.Trim(','); } else {  trimmed = article.Author; }
+
                         ArtList.Add(new Article(article.Title, article.Author, article.Description, article.PublishedAt.ToString(), article.Url,article.UrlToImage, article.Content));
                     }
 
